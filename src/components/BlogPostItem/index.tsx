@@ -5,10 +5,13 @@ import styles from "./styles";
 
 import Banner from "../Banner";
 
+import HTMLView from 'react-native-htmlview';
+
 export interface ItemProps {
   title: string;
   banner: string;
   summary?: string;
+  content?: string;
   createdAt?: string;
   totalReadingTime?: number;
   isFleet?: boolean;
@@ -83,7 +86,7 @@ const BlogPostItem = (item: ItemProps) => {
                 </Text>
               </View>
               <Text style={styles.blogTitle}>{item.title}</Text>
-              <Text>{item.summary}</Text>
+              <HTMLView value={item.content}/>
             </View>
           </View>
         </View>
